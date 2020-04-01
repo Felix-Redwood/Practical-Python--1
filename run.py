@@ -10,7 +10,10 @@ def index():
 
 @app.route("/about")
 def about():
-    return render_template("about.html", page_title="About", list_of_numbers=[1, 2, 3]) #when we navigate to about.html, the template will be returned
+    data = [] #sets up 'data' as an empty array
+    with open("data/company.json", "r") as json_data: #opens the company.json file. "r" opens the file for reading (while "a" would open the file for the purpose of appending)
+        data = json.load(json_data) #the 'data' array will comtain the data in the company.json file
+    return render_template("about.html", page_title="About", company=data) #when we navigate to about.html, the template will be returned
 
 @app.route("/contact")
 def contact():
