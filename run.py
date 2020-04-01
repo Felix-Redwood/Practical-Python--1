@@ -20,7 +20,7 @@ def careers():
     return render_template("careers.html", page_title="Careers") #when we navigate to careers.html, the template will be returned
 
 if __name__ == "__main__": #__main__ is the name of the default module in python
-    app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")),
+    app.run(host=os.environ.get("IP", "0.0.0.0"),
+            port=int(os.environ.get("PORT", "5000")),
             debug=True) #allows for easier debugging
 
