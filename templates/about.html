@@ -24,7 +24,7 @@
     {% if loop.index % 2 != 0 %}
 
 	<div class="col-md-7 text-justify">
-		<h3>{{ loop.index }} {{ member.name }}</h3>
+		<h3><a href="/about/{{ member.url }}">{{ loop.index }}. {{ member.name }}</a></h3>
 		<p>
 			{{ member.description }}
 		</p>
@@ -40,7 +40,7 @@
 		<img class="featurette-image img-responsive" src="{{ member.image_source }}" alt="Thorin Oakenshield"></img>
 	</div>
     <div class="col-md-7 text-justify">
-		<h3>{{ loop.index }} {{ member.name }}</h3>
+		<h3><a href="/about/{{ member.url }}">{{ loop.index }}. {{ member.name }}</a></h3>
 		<p>
 			{{ member.description }}
 		</p>
