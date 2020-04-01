@@ -1,4 +1,5 @@
 import os #imports os from the standard Python library
+import json
 from flask import Flask, render_template #imports the Flask class and the render_template class
 
 app = Flask(__name__) #creates an instance of the Flask class and stores it in the 'app' variable
@@ -9,7 +10,7 @@ def index():
 
 @app.route("/about")
 def about():
-    return render_template("about.html", page_title="About") #when we navigate to about.html, the template will be returned
+    return render_template("about.html", page_title="About", list_of_numbers=[1, 2, 3]) #when we navigate to about.html, the template will be returned
 
 @app.route("/contact")
 def contact():
