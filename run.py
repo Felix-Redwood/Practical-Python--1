@@ -61,4 +61,8 @@ def careers():
 if __name__ == "__main__":  # __main__ is the name of the default module in python
     app.run(host=os.environ.get("IP", "0.0.0.0"),
             port=int(os.environ.get("PORT", "5000")),
+<<<<<<< HEAD
             debug=True)  # allows for easier debugging
+=======
+            debug=True)  # allows for easier debugging
+>>>>>>> 2fc7918469d8ccf5eb64063216a7b657f8eb0084
