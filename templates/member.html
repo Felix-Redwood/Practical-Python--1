@@ -1,0 +1,21 @@
+<!--is a template for displaying individual member content-->
+
+{% extends "base.html" %}
+{% block content %}
+<!--will be used to display individual member descriptions and pictures-->
+
+<!--the image will take up 5/12 columns while the name will take up the other 7 columns-->
+<div class="row">
+	<div class="col-md-5">
+        <!--displays an image of the member as well as their name-->
+		<img src="{{ member.image_source }}" alt="Profile image for {{member.name}}" />
+		<h2 class="col-md-7">{{ member.name }}</h2>
+	</div>
+</div>
+
+<!--holds the descripton of the member, spans the screen-->
+<div class="col-md-12">
+	<p>{{ member.description }}</p>
+</div>
+
+{% endblock %}
