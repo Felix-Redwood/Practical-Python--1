@@ -12,8 +12,20 @@ def index():
 def about():
     data = [] #sets up 'data' as an empty array
     with open("data/company.json", "r") as json_data: #opens the company.json file. "r" opens the file for reading (while "a" would open the file for the purpose of appending)
-        data = json.load(json_data) #the 'data' array will comtain the data in the company.json file
+        data = json.load(json_data) #the 'data' array will contain the data in the company.json file
     return render_template("about.html", page_title="About", company=data) #when we navigate to about.html, the template will be returned
+
+@app.route("/about/<member_name>") #whenever we look at our 'about' url, and there is something after it, that will be passed into the about_member function as 'member_name'
+def about_member(member_name): #takes the member_name
+    member = {} #will store the data in
+
+    with open("data/company.json", "r") as json_data: #opens the company.json file. "r" opens the file for reading (while "a" would open the file for the purpose of appending)
+        data = json.load(json_data) #converts the data into JSON
+        for obj in data: #for each object in the data array
+            if obj["url"] == member_name: #if the url is the same as the member_name (the thing after our /about url)
+                member = obj #sets the member to the url
+    
+    return render_template("member.html", member=member) #loads the member.html template and sets the member type to the member
 
 @app.route("/contact")
 def contact():
